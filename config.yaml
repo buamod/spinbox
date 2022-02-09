@@ -1,0 +1,9 @@
+version: "v1.21.9+k3s1"
+image: "bumoad/spinbox"
+ip: "192.168.3.31"
+node:
+  name: "spinbox"
+  count: 1
+  resources:
+    memory: "8196"
+    cpu: "4"
