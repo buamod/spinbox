@@ -14,6 +14,5 @@ There could be other versions and setups supported
 - clone repo
 - vagrant up
 
-### Project is still work in progress
 ![logo](https://user-images.githubusercontent.com/2315602/153139509-30c9e144-9edc-4cae-8d44-ca26adb5d779.png)
 
