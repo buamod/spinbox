@@ -9,10 +9,6 @@ cat <<EOSTART
 
 EOSTART
 
-export MINIO_ROOT_USER=minioadmin
-export MINIO_ROOT_PASSWORD=minioadmin
-export MINIO_PORT="9010"
-
 echo "#######################################################"
 echo "configure halyard storage k3s"
 
