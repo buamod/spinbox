@@ -10,10 +10,6 @@ cat <<EOSTART
 
 EOSTART
 
-export MINIO_ROOT_USER=minioadmin
-export MINIO_ROOT_PASSWORD=minioadmin
-export MINIO_PORT="9010"
-
 echo "#######################################################"
 echo "start DB"
 sudo docker run -it -d --rm -v ~/.minio-data/:/data --name minio-4-spinnaker -p ${MINIO_PORT}:${MINIO_PORT} \
