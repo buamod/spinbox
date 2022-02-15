@@ -2,7 +2,7 @@
 # vi: set ft=ruby :
 
 #load configuration
-CONFIG = YAML.load_file('config.yaml')
+CONFIG = YAML.load_file('settings.yaml')
 
 IMAGE = CONFIG["image"]
 IP = CONFIG["ip"]
@@ -14,7 +14,7 @@ VM_NAME = CONFIG["node"]["name"]
 
 Vagrant.configure("2") do |config|
     config.vm.box = "bumoad/spinbox"
-    config.vm.box_version = "0.2.0"
+    config.vm.box_version = "0.3.0"
 
 
 # Kubernetes API Access
@@ -30,5 +30,10 @@ Vagrant.configure("2") do |config|
         vb.memory = MEMORY
         vb.name = VM_NAME
       end
-    config.vm.provision "setup spinnaker", type: "shell", path: "clean.sh"
+    config.vm.provision "install halyard", type: "shell", path: "scripts/prepare.sh"
+    config.vm.provision "instasll minio-db", type: "shell", path: "scripts/db.sh"
+    config.vm.provision "install k3s", type: "shell", path: "scripts/k3s.sh"
+    config.vm.provision "install halyard-config", type: "shell", path: "scripts/halyard-config.sh"
+    config.vm.provision "install storage-config", type: "shell", path: "scripts/storage-config.sh"
+    config.vm.provision "install spinnaker", type: "shell", path: "scripts/deploy.sh"
   end
